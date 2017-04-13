@@ -1,0 +1,11 @@
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\bin\Debug\GUI.exe.config
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\bin\Debug\GUI.exe
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\bin\Debug\GUI.pdb
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI.Properties.Resources.resources
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI.SettingsForm.resources
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI.exe
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI.pdb
+c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI.DeterminateForm.resources
+C:\Users\dadya_fedar\Documents\Visual Studio 2017\Projects\GUI\GUI\obj\Debug\GUI.out_auto.resources
