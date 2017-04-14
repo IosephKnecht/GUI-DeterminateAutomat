@@ -23,11 +23,13 @@ namespace GUI
 
         public bool Equals(Link other)
         {
-            return this.start_node.name == other.start_node.name &&
-                this.start_node.sost == other.start_node.sost &&
-                this.transition == other.transition &&
-                this.final_node.name == other.final_node.name &&
-                this.final_node.sost == other.final_node.sost;
+                    return this.start_node.name == other.start_node.name &&
+                        this.start_node.sost == other.start_node.sost &&
+                        this.transition == other.transition &&
+                        this.final_node.name == other.final_node.name &&
+                        this.final_node.sost == other.final_node.sost;
         }
+
+
     }
 }

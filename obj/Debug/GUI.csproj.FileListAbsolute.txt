@@ -9,3 +9,14 @@ c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI
 c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI.pdb
 c:\users\dadya_fedar\documents\visual studio 2017\Projects\GUI\GUI\obj\Debug\GUI.DeterminateForm.resources
 C:\Users\dadya_fedar\Documents\Visual Studio 2017\Projects\GUI\GUI\obj\Debug\GUI.out_auto.resources
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\bin\Debug\GUI.exe.config
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\bin\Debug\GUI.exe
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\bin\Debug\GUI.pdb
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.DeterminateForm.resources
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.out_auto.resources
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.Properties.Resources.resources
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.SettingsForm.resources
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.csproj.GenerateResource.Cache
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.exe
+C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.pdb

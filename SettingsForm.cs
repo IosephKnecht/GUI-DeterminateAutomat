@@ -23,20 +23,24 @@ namespace GUI
         {
             TextBox text = (TextBox)sender;
             string sym = text.Text;
-            text.Text = sym[sym.Length - 1].ToString();
-            text.SelectionStart = text.Text.Length;
+            try
+            {
+                text.Text = sym[sym.Length - 1].ToString();
+                text.SelectionStart = text.Text.Length;
+            }
+            catch { }
         }
 
-        public List<KeyValuePair<string, bool>> Convert_nodes()
+        public List<Node> Convert_nodes()
         {
-            List<KeyValuePair<string, bool>> conv_nodes = new List<KeyValuePair<string, bool>>();
+            List<Node> conv_nodes = new List<Node>();
 
             for (int i = 0; i < nodes_gridview.Rows.Count; i++)
             {
                 if (nodes_gridview.Rows[i].DefaultCellStyle.Font.Bold)
-                    conv_nodes.Add(new KeyValuePair<string, bool>(nodes_gridview.Rows[i].Cells[0].Value.ToString(), true));
+                    conv_nodes.Add(new Node(nodes_gridview.Rows[i].Cells[0].Value.ToString(), true));
                 else
-                    conv_nodes.Add(new KeyValuePair<string, bool>(nodes_gridview.Rows[i].Cells[0].Value.ToString(), false));
+                    conv_nodes.Add(new Node(nodes_gridview.Rows[i].Cells[0].Value.ToString(), false));
             }
 
             return conv_nodes;
@@ -60,6 +64,7 @@ namespace GUI
             nodes_gridview.Visible = false;
             end_checkbox.Visible = false;
             end_checkbox.Checked = false;
+            textBox1.Clear();
         }
 
         private void nodes_Radio_CheckedChanged(object sender, EventArgs e)
@@ -67,6 +72,7 @@ namespace GUI
             nodes_gridview.Visible = true;
             transitions_gridview.Visible = false;
             end_checkbox.Visible = true;
+            textBox1.Clear();
         }
 
         private void AddButton_Click(object sender, EventArgs e)

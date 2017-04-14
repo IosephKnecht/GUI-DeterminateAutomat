@@ -14,7 +14,7 @@ namespace GUI
     {
         private SettingsForm set_form;
 
-        private List<KeyValuePair<string, bool>> nodes;
+        private List<Node> nodes;
         private List<string> transitions;
         private List<Link> links;
 
@@ -34,8 +34,8 @@ namespace GUI
 
             foreach (var node in nodes)
             {
-                start_comboBox.Items.Add(node.Key);
-                final_comboBox.Items.Add(node.Key);
+                start_comboBox.Items.Add(node.name);
+                final_comboBox.Items.Add(node.name);
             }
         }
 
@@ -51,16 +51,16 @@ namespace GUI
 
         private bool Search_node(string name)
         {
-            foreach (var kvp in nodes)
+            foreach (var node in nodes)
             {
-                if (kvp.Key == name) return kvp.Value;
+                if (node.name == name) return node.sost;
             }
             return false;
         }
 
         private void Set_form_OK_event(object conv_nodes, object conv_transitions)
         {
-            nodes = (List<KeyValuePair<string, bool>>)conv_nodes;
+            nodes = (List<Node>)conv_nodes;
             transitions = (List<string>)conv_transitions;
             Enter_nodes_comboBox();
             Enter_transitions_comboBox();
@@ -114,6 +114,7 @@ namespace GUI
         private void ClearButton_Click(object sender, EventArgs e)
         {
             table.Rows.Clear();
+            links.Clear();
         }
 
         private void OK_button_Click(object sender, EventArgs e)

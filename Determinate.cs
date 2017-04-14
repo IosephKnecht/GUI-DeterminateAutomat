@@ -10,6 +10,7 @@ namespace GUI
     {
         private List<Link> links;
         private List<string> transitions;
+        private List<Node> new_final_nodes = new List<Node>();
 
         public Determinate(List<Link> links,List<string> transitions)
         {
@@ -75,23 +76,38 @@ namespace GUI
                 if (!null_link(test_link))
                 {
                     new_final += test_link.final_node.name;
-                    if (test_link.start_node.sost) sost = true;
+                    if (test_link.start_node.sost||test_link.final_node.sost) sost = true;
                 }
             }
 
-            new_final = new string(new_final.Distinct().ToArray());
-            new_final = new string(new_final.OrderBy(key => key).ToArray());
+            if (new_final != null)
+            {
+                new_final = new string(new_final.Distinct().ToArray());
+                new_final = new string(new_final.OrderBy(key => key).ToArray());
 
-            if (new_final != null) return new Link(old_link.final_node, old_link.transition, new Node(new_final, sost));
+                Node new_final_node = new Node(new_final, sost);
+                if(!new_final_nodes.Contains(new_final_node)) new_final_nodes.Add(new_final_node);
+
+                return new Link(old_link.final_node, old_link.transition, new_final_node);
+            }
             else return new Link();
+        }
+
+        private void DeleteNanNodes(List<Link> links)
+        {
+            for (int i = 0; i < links.Count; i++)
+            {
+                Link link = links[i];
+                if (!new_final_nodes.Contains(link.final_node))
+                {
+                    links.RemoveAt(i);
+                    i = 0;
+                }
+            }
         }
 
         public List<Link> Det()
         {
-            //foreach (Node node in transition_matrix)
-            //{
-            //    if (node.final_node.Length > 1) transition_matrix.Add(new Node(NewNode(node),node.transition,"?"));
-            //}
             var links = Links_to_determinate(new List<Link>(this.links));
             if (this.links == links) return this.links;
             for (int i = 0; i < links.Count; i++)
@@ -105,13 +121,15 @@ namespace GUI
                             s, new Node(links[i].final_node.name, links[i].final_node.sost));
                         Link new_link = Calcul_new_link(test_link);
                         if(!null_link(new_link))
-                            if(!links.Contains(new_link))links.Add( Calcul_new_link(test_link));
+                            if(!links.Contains(new_link)) links.Add(new_link);
                         string n = string.Empty;
                     }
                     //string n = string.Empty;
                     //transition_matrix.Add(new Node(node.final_node, node.transition, NewNode(node)));
                 }
             }
+            DeleteNanNodes(links);
+            //links.AddRange(new_links);
             return links;
             //Return_transition_matrix(transition_matrix);
         }
