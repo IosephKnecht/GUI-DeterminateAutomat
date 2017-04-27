@@ -98,7 +98,7 @@ namespace GUI
             for (int i = 0; i < links.Count; i++)
             {
                 Link link = links[i];
-                if (!new_final_nodes.Contains(link.final_node))
+                if (!new_final_nodes.Contains(link.final_node)&&!new_final_nodes.Contains(link.start_node))
                 {
                     links.RemoveAt(i);
                     i = 0;

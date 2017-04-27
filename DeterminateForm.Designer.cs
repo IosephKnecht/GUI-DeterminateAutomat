@@ -213,6 +213,7 @@
             this.Controls.Add(this.trans_comboBox);
             this.Controls.Add(this.start_comboBox);
             this.Controls.Add(this.table);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "DeterminateForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
