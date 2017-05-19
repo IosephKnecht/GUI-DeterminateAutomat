@@ -31,11 +31,13 @@ namespace GUI
         {
             start_comboBox.Items.Clear();
             final_comboBox.Items.Clear();
+            current_start_node.Items.Clear();
 
             foreach (var node in nodes)
             {
                 start_comboBox.Items.Add(node.name);
                 final_comboBox.Items.Add(node.name);
+                current_start_node.Items.Add(node.name);
             }
         }
 
@@ -119,9 +121,16 @@ namespace GUI
 
         private void OK_button_Click(object sender, EventArgs e)
         {
-            Determinate det = new Determinate(links, transitions);
-            out_auto out_form=new out_auto( det.Det());
-            out_form.ShowDialog();
+            if (current_start_node.SelectedIndex != -1)
+            {
+                Determinate det = new Determinate(links, transitions, nodes,current_start_node.SelectedItem.ToString());
+                out_auto out_form = new out_auto(det.Det());
+                out_form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста,укажите стартовую вершину...");
+            }
         }
     }
 }

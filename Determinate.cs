@@ -8,14 +8,18 @@ namespace GUI
 {
     class Determinate
     {
-        private List<Link> links;
+        private List<Link> global_links;
         private List<string> transitions;
         private List<Node> new_final_nodes = new List<Node>();
+        private List<Node> primitive_node;
+        private string current_start_node;
 
-        public Determinate(List<Link> links,List<string> transitions)
+        public Determinate(List<Link> links,List<string> transitions,List<Node> primitive_node, string current_start_node)
         {
-            this.links = links;
+            this.global_links = links;
             this.transitions = transitions;
+            this.primitive_node = primitive_node;
+            this.current_start_node = current_start_node;
             //Links_to_determinate();
         }
 
@@ -48,7 +52,7 @@ namespace GUI
 
         private Link Search_start_link(string name, string trans)
         {
-            foreach (Link start_link in links)
+            foreach (Link start_link in global_links)
             {
                 if (start_link.start_node.name == name
                     && start_link.transition == trans)
@@ -65,10 +69,23 @@ namespace GUI
                 return false;
         }
 
+        private bool Sost_new_node(string new_name)
+        {
+            bool sost = false;
+            foreach (char sym in new_name)
+            {
+                foreach (Node node in primitive_node)
+                {
+                    if (sym.ToString() == node.name)
+                        if (node.sost == true) return true;
+                }
+            }
+            return sost;
+        }
+
         private Link Calcul_new_link(Link old_link)
         {
             string new_final = null;
-            bool sost = false ;
 
             foreach (char node in old_link.final_node.name)
             {
@@ -76,7 +93,6 @@ namespace GUI
                 if (!null_link(test_link))
                 {
                     new_final += test_link.final_node.name;
-                    if (test_link.start_node.sost||test_link.final_node.sost) sost = true;
                 }
             }
 
@@ -85,7 +101,7 @@ namespace GUI
                 new_final = new string(new_final.Distinct().ToArray());
                 new_final = new string(new_final.OrderBy(key => key).ToArray());
 
-                Node new_final_node = new Node(new_final, sost);
+                Node new_final_node = new Node(new_final, Sost_new_node(new_final));
                 if(!new_final_nodes.Contains(new_final_node)) new_final_nodes.Add(new_final_node);
 
                 return new Link(old_link.final_node, old_link.transition, new_final_node);
@@ -95,21 +111,55 @@ namespace GUI
 
         private void DeleteNanNodes(List<Link> links)
         {
+            //for (int i = 0; i < links.Count; i++)
+            //{
+            //    Link link = links[i];
+            //    if (!new_final_nodes.Contains(link.final_node)&&!new_final_nodes.Contains(link.start_node))
+            //    {
+            //        links.RemoveAt(i);
+            //        i = 0;
+            //    }
+            //}
             for (int i = 0; i < links.Count; i++)
             {
-                Link link = links[i];
-                if (!new_final_nodes.Contains(link.final_node)&&!new_final_nodes.Contains(link.start_node))
+                bool NanNode = true;
+                for (int j = 0; j < links.Count; j++)
+                {
+                    if(!links[j].start_node.Equals(links[j].final_node))
+                    {
+                        if(links[i].start_node.name == current_start_node)
+                        {
+                            NanNode = false;
+                            break;
+                        }
+                        if (links[i].start_node.Equals(links[j].final_node))
+                        {
+                            NanNode = false;
+                            break;
+                        }
+                    }
+                }
+                if (NanNode)
                 {
                     links.RemoveAt(i);
-                    i = 0;
+                    i = -1;
                 }
             }
+            string s = null;
         }
 
         public List<Link> Det()
         {
-            var links = Links_to_determinate(new List<Link>(this.links));
-            if (this.links == links) return this.links;
+            var cash = new List<Link>();
+            foreach (Link link in global_links)
+            {
+                Node start_node = new Node(link.start_node.name, link.start_node.sost);
+                Node final_node = new Node(link.final_node.name, link.final_node.sost);
+                cash.Add(new Link(start_node, link.transition, final_node));
+            }
+            var links = Links_to_determinate(cash);
+            if (this.global_links == links) return this.global_links;
+            global_links = cash;
             for (int i = 0; i < links.Count; i++)
             {
                 Node node = links[i].final_node;

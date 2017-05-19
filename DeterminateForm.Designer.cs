@@ -45,6 +45,7 @@
             this.DelButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.set_button = new System.Windows.Forms.Button();
+            this.current_start_node = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.table)).BeginInit();
             this.SuspendLayout();
             // 
@@ -161,7 +162,7 @@
             // 
             // ClearButton
             // 
-            this.ClearButton.Location = new System.Drawing.Point(335, 207);
+            this.ClearButton.Location = new System.Drawing.Point(335, 233);
             this.ClearButton.Name = "ClearButton";
             this.ClearButton.Size = new System.Drawing.Size(156, 23);
             this.ClearButton.TabIndex = 18;
@@ -191,7 +192,7 @@
             // 
             // set_button
             // 
-            this.set_button.Location = new System.Drawing.Point(335, 236);
+            this.set_button.Location = new System.Drawing.Point(335, 262);
             this.set_button.Name = "set_button";
             this.set_button.Size = new System.Drawing.Size(156, 56);
             this.set_button.TabIndex = 20;
@@ -199,11 +200,20 @@
             this.set_button.UseVisualStyleBackColor = true;
             this.set_button.Click += new System.EventHandler(this.set_button_Click);
             // 
+            // current_start_node
+            // 
+            this.current_start_node.FormattingEnabled = true;
+            this.current_start_node.Location = new System.Drawing.Point(351, 206);
+            this.current_start_node.Name = "current_start_node";
+            this.current_start_node.Size = new System.Drawing.Size(121, 21);
+            this.current_start_node.TabIndex = 21;
+            // 
             // DeterminateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 304);
+            this.Controls.Add(this.current_start_node);
             this.Controls.Add(this.set_button);
             this.Controls.Add(this.OK_button);
             this.Controls.Add(this.ClearButton);
@@ -236,6 +246,7 @@
         private System.Windows.Forms.Button DelButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button set_button;
+        private System.Windows.Forms.ComboBox current_start_node;
     }
 }
 

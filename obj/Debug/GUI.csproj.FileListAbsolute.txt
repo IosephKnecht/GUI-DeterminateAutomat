@@ -20,3 +20,14 @@ C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.SettingsForm.r
 C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.csproj.GenerateResource.Cache
 C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.exe
 C:\Users\dadya_fedar\Desktop\GUI-DeterminateAutomat\obj\Debug\GUI.pdb
+D:\GUI-DeterminateAutomat\bin\Debug\GUI.exe.config
+D:\GUI-DeterminateAutomat\bin\Debug\GUI.exe
+D:\GUI-DeterminateAutomat\bin\Debug\GUI.pdb
+D:\GUI-DeterminateAutomat\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+D:\GUI-DeterminateAutomat\obj\Debug\GUI.DeterminateForm.resources
+D:\GUI-DeterminateAutomat\obj\Debug\GUI.out_auto.resources
+D:\GUI-DeterminateAutomat\obj\Debug\GUI.Properties.Resources.resources
+D:\GUI-DeterminateAutomat\obj\Debug\GUI.SettingsForm.resources
+D:\GUI-DeterminateAutomat\obj\Debug\GUI.csproj.GenerateResource.Cache
+D:\GUI-DeterminateAutomat\obj\Debug\GUI.exe
+D:\GUI-DeterminateAutomat\obj\Debug\GUI.pdb
