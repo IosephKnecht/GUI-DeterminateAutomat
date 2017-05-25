@@ -14,6 +14,13 @@ namespace GUI
         private List<Node> primitive_node;
         private string current_start_node;
 
+        /// <summary>
+        /// Конструктор...
+        /// </summary>
+        /// <param name="links">Массив переходов...</param>
+        /// <param name="transitions">Массив transition...</param>
+        /// <param name="primitive_node">Массив изначальных узлов..</param>
+        /// <param name="current_start_node">Стартовый узел...</param>
         public Determinate(List<Link> links,List<string> transitions,List<Node> primitive_node, string current_start_node)
         {
             this.global_links = links;
@@ -23,6 +30,11 @@ namespace GUI
             //Links_to_determinate();
         }
 
+        /// <summary>
+        /// Первоначальное слиение узлов по общим переходам...
+        /// </summary>
+        /// <param name="links">Массив линков...</param>
+        /// <returns>Массив линков с объединениями...</returns>
         private List<Link> Links_to_determinate(List<Link> links)
         {
             for (int i = 0; i < links.Count; i++)
@@ -50,6 +62,12 @@ namespace GUI
             return links;
         }
 
+        /// <summary>
+        /// Вспомагательный метод по поиску начального линка...
+        /// </summary>
+        /// <param name="name">Имя узла...</param>
+        /// <param name="trans">Переход по линку...</param>
+        /// <returns>Искомый линк...</returns>
         private Link Search_start_link(string name, string trans)
         {
             foreach (Link start_link in global_links)
@@ -61,6 +79,11 @@ namespace GUI
             return new Link();
         }
 
+        /// <summary>
+        /// Метод проверки на пустой линк...
+        /// </summary>
+        /// <param name="link">Проверяемый линк...</param>
+        /// <returns>True/False,полноценный линк/пустой линк...</returns>
         private bool null_link(Link link)
         {
             if (link.start_node == null && link.transition == null && link.final_node == null)
@@ -69,6 +92,11 @@ namespace GUI
                 return false;
         }
 
+        /// <summary>
+        /// Метод определяющий состояние нового узла...
+        /// </summary>
+        /// <param name="new_name">Имя узла...</param>
+        /// <returns>True/False,конечный узел/неконечный...</returns>
         private bool Sost_new_node(string new_name)
         {
             bool sost = false;
@@ -83,6 +111,11 @@ namespace GUI
             return sost;
         }
 
+        /// <summary>
+        /// Метод реализующий всю логику составление нового линка...
+        /// </summary>
+        /// <param name="old_link">Старый линк...</param>
+        /// <returns>Новый линк...</returns>
         private Link Calcul_new_link(Link old_link)
         {
             string new_final = null;
@@ -109,6 +142,10 @@ namespace GUI
             else return new Link();
         }
 
+        /// <summary>
+        /// Метод реализующий логику удаления ненужных узлов...
+        /// </summary>
+        /// <param name="links">Массив конечных линков,после детерминации...</param>
         private void DeleteNanNodes(List<Link> links)
         {
             //for (int i = 0; i < links.Count; i++)
@@ -148,6 +185,10 @@ namespace GUI
             string s = null;
         }
 
+        /// <summary>
+        /// Публичный метод организующий весь процесс детерминации...
+        /// </summary>
+        /// <returns>Выходной массив линков...</returns>
         public List<Link> Det()
         {
             var cash = new List<Link>();
